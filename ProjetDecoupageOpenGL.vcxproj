@@ -157,10 +157,12 @@
     <ClInclude Include="include\glut.h" />
     <ClInclude Include="include\stdafx.h" />
     <ClInclude Include="include\targetver.h" />
+    <ClInclude Include="Remplissage.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Fenetrage.cpp" />
     <ClCompile Include="ProjetDecoupageOpenGL.cpp" />
+    <ClCompile Include="Remplissage.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
