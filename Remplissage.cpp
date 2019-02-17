@@ -21,7 +21,7 @@ infosCotesListe ajouterEnFin(infosCotesListe liste, std::vector<float> infos)
 }
 
 
-std::vector<float> calculInfosCotePourSI(std::vector<std::array<int, 2>>::iterator it1, std::vector<std::array<int, 2>>::iterator it2) {
+std::vector<float> calculInfosCotePourSI(std::vector<std::array<float, 2>>::iterator it1, std::vector<std::array<float, 2>>::iterator it2) {
 	std::vector<float> newCote;
 	float yMin;
 	float yMax;
@@ -52,12 +52,12 @@ std::vector<float> calculInfosCotePourSI(std::vector<std::array<int, 2>>::iterat
 	return newCote;
 }
 
-std::map<float, infosCotesListe> creation_SI(std::vector<std::array<int, 2>> polygone) {
+std::map<float, infosCotesListe> creation_SI(std::vector<std::array<float, 2>> polygone) {
 	std::map<float, infosCotesListe> SI;
 	std::vector<float> newCote;
 	infosCotesListe newCoteInfos = {};
 
-	for (std::vector<std::array<int, 2>>::iterator it = polygone.begin(); it != polygone.end(); ++it) {
+	for (std::vector<std::array<float, 2>>::iterator it = polygone.begin(); it != polygone.end(); ++it) {
 		if (it + 1 == polygone.end()) {
 			newCote = calculInfosCotePourSI(it, polygone.begin());
 			if (SI.find(newCote[0]) == SI.end()) SI.insert(std::pair<float, infosCotesListe>(newCote[0], ajouterEnFin(NULL, newCote)));
@@ -73,6 +73,6 @@ std::map<float, infosCotesListe> creation_SI(std::vector<std::array<int, 2>> pol
 	return SI;
 }
 
-void remplissage_LCA(std::vector<std::array<int, 2>> polygone) {
+void remplissage_LCA(std::vector<std::array<float, 2>> polygone) {
 	std::map<float, infosCotesListe> SI = creation_SI(polygone);
 }

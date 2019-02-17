@@ -19,6 +19,6 @@ struct infosCotes
 
 typedef infosCotes* infosCotesListe;
 
-std::vector<float> calculInfosCotePourSI(std::vector<std::array<int, 2>>::iterator it1, std::vector<std::array<int, 2>>::iterator it2);
-std::map<float, infosCotesListe> creation_SI(std::vector<std::array<int, 2>> polygone);
-void remplissage_LCA(std::vector<std::array<int, 2>> polygone);
+std::vector<float> calculInfosCotePourSI(std::vector<std::array<float, 2>>::iterator it1, std::vector<std::array<float, 2>>::iterator it2);
+std::map<float, infosCotesListe> creation_SI(std::vector<std::array<float, 2>> polygone);
+void remplissage_LCA(std::vector<std::array<float, 2>> polygone);
