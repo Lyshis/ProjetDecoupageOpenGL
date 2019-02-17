@@ -1,0 +1,30 @@
+﻿  Remplissage.cpp
+d:\emma\cours\4a\maths\projet_decoupage\projetdecoupageopengl\remplissage.cpp(32): warning C4244: '=' : conversion de 'int' en 'float', perte possible de données
+d:\emma\cours\4a\maths\projet_decoupage\projetdecoupageopengl\remplissage.cpp(33): warning C4244: '=' : conversion de 'int' en 'float', perte possible de données
+d:\emma\cours\4a\maths\projet_decoupage\projetdecoupageopengl\remplissage.cpp(34): warning C4244: '=' : conversion de 'int' en 'float', perte possible de données
+d:\emma\cours\4a\maths\projet_decoupage\projetdecoupageopengl\remplissage.cpp(37): warning C4244: '=' : conversion de 'int' en 'float', perte possible de données
+d:\emma\cours\4a\maths\projet_decoupage\projetdecoupageopengl\remplissage.cpp(38): warning C4244: '=' : conversion de 'int' en 'float', perte possible de données
+d:\emma\cours\4a\maths\projet_decoupage\projetdecoupageopengl\remplissage.cpp(39): warning C4244: '=' : conversion de 'int' en 'float', perte possible de données
+d:\emma\cours\4a\maths\projet_decoupage\projetdecoupageopengl\remplissage.cpp(43): warning C4244: '=' : conversion de 'int' en 'float', perte possible de données
+  ProjetDecoupageOpenGL.cpp
+d:\emma\cours\4a\maths\projet_decoupage\projetdecoupageopengl\projetdecoupageopengl.cpp(79): error C2664: 'std::vector<std::array<float,2>,std::allocator<_Ty>> algo_Sutherland_Hodgman(std::vector<_Ty,std::allocator<_Ty>>,std::vector<_Ty,std::allocator<_Ty>>)' : impossible de convertir l'argument 1 de 'std::vector<std::array<int,2>,std::allocator<_Ty>>' en 'std::vector<std::array<float,2>,std::allocator<_Ty>>'
+          with
+          [
+              _Ty=std::array<float,2>
+          ]
+          and
+          [
+              _Ty=std::array<int,2>
+          ]
+          and
+          [
+              _Ty=std::array<float,2>
+          ]
+  d:\emma\cours\4a\maths\projet_decoupage\projetdecoupageopengl\projetdecoupageopengl.cpp(79): note: Aucun opérateur de conversion définie par l'utilisateur disponible qui puisse effectuer cette conversion, ou l'opérateur ne peut pas être appelé
+  Fenetrage.cpp
+d:\emma\cours\4a\maths\projet_decoupage\projetdecoupageopengl\fenetrage.cpp(61): warning C4244: 'initialisation' : conversion de 'float' en 'int', perte possible de données
+d:\emma\cours\4a\maths\projet_decoupage\projetdecoupageopengl\fenetrage.cpp(62): warning C4244: 'initialisation' : conversion de 'float' en 'int', perte possible de données
+d:\emma\cours\4a\maths\projet_decoupage\projetdecoupageopengl\fenetrage.cpp(63): warning C4244: 'initialisation' : conversion de 'float' en 'int', perte possible de données
+d:\emma\cours\4a\maths\projet_decoupage\projetdecoupageopengl\fenetrage.cpp(64): warning C4244: 'initialisation' : conversion de 'float' en 'int', perte possible de données
+d:\emma\cours\4a\maths\projet_decoupage\projetdecoupageopengl\fenetrage.cpp(96): warning C4267: '=' : conversion de 'size_t' en 'int', perte possible de données
+  Génération de code en cours...
