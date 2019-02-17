@@ -2,7 +2,7 @@
 #include "Fenetrage.h"
 
 
-bool coupe(std::array<int, 2> S, std::array<int, 2> Pj, std::array<int, 2> Fi, std::array<int, 2> Fip1) {
+bool coupe(std::array<float, 2> S, std::array<float, 2> Pj, std::array<float, 2> Fi, std::array<float, 2> Fip1) {
 	bool Svis = visible(S, Fi, Fip1);
 	bool Pjvis = visible(Pj, Fi, Fip1);
 	bool ret = false;
@@ -33,7 +33,7 @@ std::array<float, 2> matmul(std::vector<std::array<float, 2>> _matrix, std::arra
 	return retour;
 }
 
-std::array<int, 2> intersection(std::array<int, 2> S, std::array<int, 2> Pj, std::array<int, 2> Fi, std::array<int, 2> Fip1) {
+std::array<float, 2> intersection(std::array<float, 2> S, std::array<float, 2> Pj, std::array<float, 2> Fi, std::array<float, 2> Fip1) {
 	std::array<float, 2> matVec1;
 	std::array<float, 2> matVec2;
 	std::array<float, 2> vec;
@@ -50,14 +50,14 @@ std::array<int, 2> intersection(std::array<int, 2> S, std::array<int, 2> Pj, std
 	Inv = inverse(matA);
 	std::array<float, 2> vecX = matmul(Inv, vec);
 	float s = vecX[1];
-	std::array<int, 2> retour;
+	std::array<float, 2> retour;
 	retour[0] = Fi[0] + (Fip1[0] - Fi[0])*s;
 	retour[1] = Fi[1] + (Fip1[1] - Fi[1])*s;
 	return retour;
 }
 
 
-bool visible(std::array<int, 2> S, std::array<int, 2> Fi, std::array<int, 2> Fip1) {
+bool visible(std::array<float, 2> S, std::array<float, 2> Fi, std::array<float, 2> Fip1) {
 	int x = S[0] - Fi[0];
 	int y = S[1] - Fi[1];
 	int xp = Fip1[0] - Fi[0];
@@ -79,15 +79,15 @@ bool visible(std::array<int, 2> S, std::array<int, 2> Fi, std::array<int, 2> Fip
 }
 
 
-std::vector<std::array<int, 2>> algo_Sutherland_Hodgman(std::vector<std::array<int, 2>> polygone, std::vector<std::array<int, 2>> fenetre) {
+std::vector<std::array<float, 2>> algo_Sutherland_Hodgman(std::vector<std::array<float, 2>> polygone, std::vector<std::array<float, 2>> fenetre) {
 	int N1, N2, i, j;
-	std::array<int, 2> S, F, I;
-	std::vector<std::array<int, 2>> PS;
-	std::vector<std::array<int, 2>> vectorRetour;
+	std::array<float, 2> S, F, I;
+	std::vector<std::array<float, 2>> PS;
+	std::vector<std::array<float, 2>> vectorRetour;
 	for (auto &pt : polygone) {
 		vectorRetour.push_back(pt);
 	}
-	std::vector<std::array<int, 2>> vectorFenetreExtend;
+	std::vector<std::array<float, 2>> vectorFenetreExtend;
 	for (auto &pt : fenetre) {
 		vectorFenetreExtend.push_back(pt);
 	}
@@ -124,7 +124,7 @@ std::vector<std::array<int, 2>> algo_Sutherland_Hodgman(std::vector<std::array<i
 			}
 			vectorRetour.clear();
 			for (auto &pt : PS) {
-				std::array<int, 2> temp;
+				std::array<float, 2> temp;
 				temp[0] = pt[0];
 				temp[1] = pt[1];
 				vectorRetour.push_back(temp);
