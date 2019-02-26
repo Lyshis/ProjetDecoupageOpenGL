@@ -29,20 +29,20 @@ infosCotesListe ajouterEnFin(infosCotesListe liste, std::vector<float> infos, fl
 
 std::vector<float> calculInfosCotePourSI(std::vector<std::array<float, 2>>::iterator it1, std::vector<std::array<float, 2>>::iterator it2) {
 	std::vector<float> newCote;
-	float yMin;
-	float yMax;
-	float xMin;
+	int yMin;
+	int yMax;
+	int xMin;
 	float invCoefDir;
 
 	if ((*it1)[1] > (*it2)[1]) {
-		yMin = (*it2)[1];
-		yMax = (*it1)[1];
-		xMin = (*it2)[0];
+		yMin = static_cast<int>((*it2)[1]);
+		yMax = static_cast<int>((*it1)[1]);
+		xMin = static_cast<int>((*it2)[0]);
 	}
 	else {
-		yMin = (*it1)[1];
-		yMax = (*it2)[1];
-		xMin = (*it1)[0];
+		yMin = static_cast<int>((*it1)[1]);
+		yMax = static_cast<int>((*it2)[1]);
+		xMin = static_cast<int>((*it1)[0]);
 	}
 	if ((*it1)[0] - (*it2)[0] < 0.00001 && (*it1)[0] - (*it2)[0] > -0.99999) invCoefDir = 0;
 	else {
