@@ -44,15 +44,15 @@ std::vector<float> calculInfosCotePourSI(std::vector<std::array<float, 2>>::iter
 		yMax = static_cast<int>((*it2)[1]);
 		xMin = static_cast<int>((*it1)[0]);
 	}
-	if ((*it1)[0] - (*it2)[0] < 0.00001 && (*it1)[0] - (*it2)[0] > -0.99999) invCoefDir = 0;
+	if ((*it1)[0] - (*it2)[0] < 0.00001 && (*it1)[0] - (*it2)[0] > -0.00001) invCoefDir = 0;
 	else {
 		invCoefDir = ((*it1)[1] - (*it2)[1]) / ((*it1)[0] - (*it2)[0]);
 		invCoefDir = invCoefDir < 0.00001 && invCoefDir > -0.00001 ? 0 : 1 / invCoefDir;
 	}
 
-	newCote.push_back(yMin);
-	newCote.push_back(yMax);
-	newCote.push_back(xMin);
+	newCote.push_back(static_cast<float>(yMin));
+	newCote.push_back(static_cast<float>(yMax));
+	newCote.push_back(static_cast<float>(xMin));
 	newCote.push_back(invCoefDir);
 
 	return newCote;
@@ -65,7 +65,7 @@ void swapInfosCotes(infosCotesListe a, infosCotesListe b) {
 }
 
 void triABullesDeSI(infosCotesListe start) {
-	int swapped, i;
+	int swapped;
 	infosCotesListe ptr1 = new infosCotes;
 	ptr1->next = NULL;
 	infosCotesListe lptr = NULL;
@@ -116,7 +116,7 @@ std::map<float, infosCotesListe> creation_SI(std::vector<std::array<float, 2>> p
 
 std::vector<float> calculYMinMaxDeSI(std::map<float, infosCotesListe> SI) {
 	std::vector<float> minMaxDeSI;
-	float tmpYmin, tmpYmax, tmpXmin, tmpXmax;
+	float tmpYmin, tmpYmax;
 	for (std::map<float, infosCotesListe>::iterator it = SI.begin(); it != SI.end(); ++it) {
 		if (it == SI.begin()) tmpYmin = it->first;
 		else if (it->first < tmpYmin) tmpYmin = it->first;
@@ -130,7 +130,7 @@ std::vector<float> calculYMinMaxDeSI(std::map<float, infosCotesListe> SI) {
 }
 
 infosCotesListe triABullesDeLCA(infosCotesListe start) {
-	int swapped, i;
+	int swapped;
 	infosCotesListe ptr1 = new infosCotes;
 	ptr1->next = NULL;
 	infosCotesListe lptr = NULL;
@@ -166,10 +166,9 @@ std::vector<Point> remplirRemplissage(infosCotesListe LCA, int i, std::vector<Po
 	for (int j = 0; j < nombreElements(LCA); ++j) {
 		if (trace) {
 			tmpArray[0] = tmp->informations[1];
-			tmpArray[1] = i;
+			tmpArray[1] = static_cast<float>(i);
 			remplissage.push_back(tmpArray);
 		}
-		//if(j % 2 != 0) trace = !trace;
 		tmp = tmp->next;
 	}
 	return remplissage;
@@ -201,7 +200,7 @@ infosCotesListe miseAJourLCA(std::map<float, infosCotesListe> SI, infosCotesList
 		tmp = it->second;
 		for (int j = 0; j < nombreElements(it->second); ++j) {
 			if (it->first == i) LCA = ajouterEnFin(LCA, tmp->informations, tmp->informations[1]);
-			if(tmp->informations[0] == i) LCA = supprimerInfosCoteSiyMax(LCA, tmp->informations[0]);
+			if(tmp->informations[0] == i) LCA = supprimerInfosCoteSiyMax(LCA, static_cast<int>(tmp->informations[0]));
 			tmp = tmp->next;
 		}
 	}
@@ -225,7 +224,7 @@ std::vector<std::array<float, 2>> algo_remplissage_LCA(std::vector<std::array<fl
 	infosCotesListe LCA = new infosCotes;
 	LCA->next = NULL;
 	std::vector<float> minMaxDeSI = calculYMinMaxDeSI(SI);
-	float yMin = minMaxDeSI[0];
+	int yMin = static_cast<int>(minMaxDeSI[0]);
 	float yMax = minMaxDeSI[1];
 	for (int i = yMin; i < yMax; ++i) {
 		LCA = miseAJourLCA(SI, LCA, i);
